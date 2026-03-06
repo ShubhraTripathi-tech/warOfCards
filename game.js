@@ -1,4 +1,4 @@
-//const readline = require("readline-sync");
+const readline = require("readline-sync");
 
 const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
@@ -44,34 +44,52 @@ const splitDeck = () => {
   playerOneDeck = shuffleDeck.slice(0, deck.length / 2); // give playerOneDeck array a half of the shuffled deck;
   playerTwoDeck = shuffleDeck.slice(26); // gives playerTwoDeck the other half
 
-  console.log(playerOneDeck, playerTwoDeck);
+  //console.log(playerOneDeck, playerTwoDeck);
 };
 
 // console.log(createDeck());
 
-console.log(splitDeck(shuffleDeck));
+//console.log(splitDeck(shuffleDeck));
 
 // players take end card, compare results, larger card wins, winner takes both cards.
 
-function drawCard(playerDeck){
-
-  let card = playerDeck.pop()
+function drawCard(playerDeck) {
+  let card = playerDeck.pop();
 
   return card;
 }
 
-function compareCards(){
+function compareCards() {
   let card1 = drawCard(playerOneDeck);
-  let card2 = drawCard(playerTwoDeck)
+  let card2 = drawCard(playerTwoDeck);
+  console.log(`Player 1 draws ${card1}`);
+  console.log(`Player 2 draws ${card2}`);
 
-  if (card1 > card2){
-    return ;
-
-
-
+  if (card1 > card2) {
+    playerOneDeck.push(card2);
+    playerOneDeck.push(card1);
+    console.log("Player 1 wins the round");
+  } else if (card2 > card1) {
+    playerTwoDeck.push(card2);
+    playerTwoDeck.push(card1);
+    console.log("Player 2 wins the round");
+  } else {
+    console.log("It's a draw!!!");
   }
-
-  console.log(card1, card2)
-  
 }
-console.log(compareCards());
+
+//console.log(compareCards());
+function startGame() {
+  console.log("\n  ♠️  Welcome to War of Cards ♠️ \n");
+  readline.question("Press enter to start the game...");
+  shuffle(createDeck());
+  splitDeck();
+
+  while (playerOneDeck.length > 0 || playerTwoDeck.length > 0) {
+    readline.question("Press Enter to draw a card");
+
+    compareCards();
+  }
+}
+
+startGame();
