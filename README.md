@@ -11,7 +11,7 @@ npm install
 2. After that you can launch the game by running this command
 
 ```bash
-node index.js
+node game.js
 ```
 
 ## Have fun playing!
@@ -34,4 +34,4 @@ In this game you and the computer have half a deck of cards each. Each player wi
 
 ### 3. Playing the game
 
-After initializing the game.
+After initializing the game. You will see the 'Welcome to' page. To start the game you press "Enter". You will see the first result between you and the computer. Keep pressing "Enter" to get more results and eventually the cards will run out and there will be a Winner and a Loser. Hopefully it's you !!! Good Luck
