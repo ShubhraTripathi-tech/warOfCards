@@ -50,3 +50,28 @@ const splitDeck = () => {
 // console.log(createDeck());
 
 console.log(splitDeck(shuffleDeck));
+
+// players take end card, compare results, larger card wins, winner takes both cards.
+
+function drawCard(playerDeck){
+
+  let card = playerDeck.pop()
+
+  return card;
+}
+
+function compareCards(){
+  let card1 = drawCard(playerOneDeck);
+  let card2 = drawCard(playerTwoDeck)
+
+  if (card1 > card2){
+    return ;
+
+
+
+  }
+
+  console.log(card1, card2)
+  
+}
+console.log(compareCards());
