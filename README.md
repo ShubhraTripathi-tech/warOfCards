@@ -11,7 +11,7 @@ npm install
 2. After that you can launch the game by running this command
 
 ```bash
-node index.js
+node game.js
 ```
 
 ## Have fun playing!
