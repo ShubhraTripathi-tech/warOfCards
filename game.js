@@ -85,7 +85,7 @@ function startGame() {
   shuffle(createDeck());
   splitDeck();
 
-  while (playerOneDeck.length > 0 || playerTwoDeck.length > 0) {
+  while (playerOneDeck.length > 0 && playerTwoDeck.length > 0) {
     readline.question("Press Enter to draw a card");
 
     compareCards();
