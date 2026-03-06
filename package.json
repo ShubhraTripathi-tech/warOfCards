@@ -1,0 +1,20 @@
+{
+  "name": "warofcards",
+  "version": "1.0.0",
+  "description": "War of Cards is a simple card game implemented using programming logic to simulate the classic War card game played with a standard deck. The game automatically deals cards between two players and compares them each round to determine the winner.",
+  "homepage": "https://github.com/ShubhraTripathi-tech/warOfCards#readme",
+  "bugs": {
+    "url": "https://github.com/ShubhraTripathi-tech/warOfCards/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShubhraTripathi-tech/warOfCards.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
