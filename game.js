@@ -36,6 +36,10 @@ let playerOneDeck = [];
 
 let playerTwoDeck = [];
 
+let playerOneScore = 0;
+
+let playerTwoScore = 0;
+
 const splitDeck = () => {
   //update playerOneDeck and playerTwoDeck;
   //takes shuffleDeck's return (which is a shuffled deck)
@@ -62,14 +66,16 @@ function drawCard(playerDeck) {
 function compareCards() {
   let card1 = drawCard(playerOneDeck);
   let card2 = drawCard(playerTwoDeck);
-  console.log(`Player 1 draws ${card1}`);
-  console.log(`Player 2 draws ${card2}`);
+  console.log(`Player 1 draws the card of${card1}`);
+  console.log(`Player 2 draws the card of ${card2}`);
 
   if (card1 > card2) {
+    playerOneScore++;
     playerOneDeck.push(card2);
     playerOneDeck.push(card1);
     console.log("Player 1 wins the round");
   } else if (card2 > card1) {
+    playerTwoScore++;
     playerTwoDeck.push(card2);
     playerTwoDeck.push(card1);
     console.log("Player 2 wins the round");
@@ -81,14 +87,20 @@ function compareCards() {
 //console.log(compareCards());
 function startGame() {
   console.log("\n  ♠️  Welcome to War of Cards ♠️ \n");
-  readline.question("Press enter to start the game...");
+  readline.question("Press Enter to start the game...");
   shuffle(createDeck());
   splitDeck();
 
-  while (playerOneDeck.length > 0 || playerTwoDeck.length > 0) {
+  while (playerOneDeck.length > 0 && playerTwoDeck.length > 0) {
     readline.question("Press Enter to draw a card");
 
     compareCards();
+  }
+
+  if (playerOneScore > playerTwoScore) {
+    console.log("Player 1 wins the whole game. Impressive");
+  } else {
+    console.log("Player 2 wins the whole game. Not so impressive");
   }
 }
 
