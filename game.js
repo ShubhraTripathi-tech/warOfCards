@@ -64,23 +64,54 @@ function drawCard(playerDeck) {
 }
 
 function compareCards() {
+  let drawCards = [];
   let card1 = drawCard(playerOneDeck);
   let card2 = drawCard(playerTwoDeck);
-  console.log(`Player 1 draws the card of${card1}`);
+  console.log(`Player 1 draws the card of ${card1}`);
   console.log(`Player 2 draws the card of ${card2}`);
-
+  drawCards.push(card1, card2);
   if (card1 > card2) {
     playerOneScore++;
     playerOneDeck.push(card2);
     playerOneDeck.push(card1);
-    console.log("Player 1 wins the round");
+    console.log("🏆 Player 1 wins the round");
   } else if (card2 > card1) {
     playerTwoScore++;
     playerTwoDeck.push(card2);
     playerTwoDeck.push(card1);
-    console.log("Player 2 wins the round");
+    console.log("🏆 Player 2 wins the round");
   } else {
-    console.log("It's a draw!!!");
+    console.log("It's a war!!!");
+    draw(drawCards);
+  }
+}
+function draw(drawCards) {
+  for (let i = 0; i < 3; i++) {
+    if (playerOneDeck.length === 0 || playerTwoDeck.length === 0) {
+      console.log("Not enough cards for war!!");
+      return;
+    }
+
+    drawCards.push(drawCard(playerOneDeck));
+    drawCards.push(drawCard(playerTwoDeck));
+  }
+
+  let card1 = drawCard(playerOneDeck);
+  let card2 = drawCard(playerTwoDeck);
+  console.log(`War card Player 1: ${card1}`);
+  console.log(`War card Player 2: ${card2}`);
+
+  drawCards.push(card1, card2);
+
+  if (card1 > card2) {
+    playerOneDeck.push(...drawCards);
+    console.log("🔥 Player 1 wins the WAR!");
+  } else if (card2 > card1) {
+    playerTwoDeck.push(...drawCards);
+    console.log("🔥 Player 2 wins the WAR!");
+  } else {
+    console.log("Another WAR!");
+    draw(drawCard);
   }
 }
 
