@@ -3,7 +3,7 @@
 const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 function createDeck() {
-  let deck = [];
+  let deck = []; // 52 cards in a deck 4*13
 
   for (let i = 0; i < values.length; i++) {
     deck.push(values[i]);
@@ -28,8 +28,20 @@ const shuffle = (deck) => {
   }
   return deck;
 };
+let playerOneDeck = [];
 
-console.log(createDeck());
-console.log(shuffle(createDeck()));
+let playerTwoDeck = [];
+const splitDeck = (deck) => {
+  //update playerOneDeck and playerTwoDeck;
+  //takes shuffleDeck's return (which is a shuffled deck)
+  //need to store decks in separate variables
 
-// 52 cards in a deck 4*13
+  playerOneDeck = deck.slice(0, deck.length / 2); // give playerOneDeck array a half of the shuffled deck;
+  playerTwoDeck = deck.slice(26); // gives playerTwoDeck the other half
+
+  console.log(playerOneDeck, playerTwoDeck);
+};
+
+// console.log(createDeck());
+// console.log(shuffle(createDeck()));
+console.log(splitDeck(shuffle(createDeck())));
